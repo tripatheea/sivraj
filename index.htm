@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en-US" class="html blur-bgimage">
+
+<head>
+  <title>SIVRAJ</title>
+  
+  <link rel="stylesheet" href="css/style.css?v=3.14">
+
+  <link rel="stylesheet" href="js/shelf/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+
+</head>
+<body>
+
+<audio id="jarvis_start" src="jarvis.wav" preload="auto"></audio>
+
+<a class="fancybox" rel="group" href="images/bckg/1488x901xBoston-HDR-Sunflare.jpg.pagespeed.ic.i42ffyN1L1.jpg">Lightbox</a>
+
+<div id="feed_container">
+    <video autoplay="true" id="videoElement"></video>
+</div><!--/.feed_container -->
+
+<button id="authorize-button">Authorize</button>
+
+<div class="text_box">
+	<span class="final_text"></span>
+	<span class="interim_text"></span>
+</div><!--/.text_box -->
+
+<div class="wrapper">
+
+  <div class="top_container">
+
+	  <div class="left">
+	  	<div class="time_block"></div>
+	  </div><!--/.left -->
+
+	  <div class="right">
+	  	
+	  	<div class="weather_icon"></div>
+	  	
+	  	<div class="date_block"></div>
+
+	  	<div class="current_block">
+	  		<span class="current_temp"></span> | <span class="current_summary"></span>
+	  	</div><!--/.current_block -->
+	  	
+	  	<div class="limiting_temp">
+	  		Feels like <span class="feels_like"></span> | 
+	  		<span class="wind"></span> mph | 
+	  		<img src="images/arrow-up.png"><span class="max_temp"></span>
+	  		<img src="images/arrow-down.png"><span class="min_temp"></span>
+	  	</div>
+	  
+	  </div><!--/.right -->
+
+  </div><!--/.top_container -->
+
+  <br><br>
+
+
+<div class="big_bottom_container">
+
+  <div class="bottom_container">
+  	  <div class="calendar_block">
+  	  	<h1>Calendar</h1>
+
+        <div class="calendar_events"></div>
+        
+  	  </div><!--/.calendar_block -->
+
+	  <div class="shuttle_block">
+	  	
+      <h1>Next Shuttle On</h1>
+
+	  	<div class="eta"></div><!--/.eta -->
+
+	  	<br>
+
+	  	<div class="map">
+	  		<iframe src="map.htm" seamless="seamless" width="85%" height="450px"></iframe>
+	  	</div><!--/.map -->
+
+	  </div><!--/.shuttle_block -->
+  </div><!--/.bottom_container -->
+
+  <div class="bottom_container_second">
+
+	<div class="weekly_calendar_block">
+  	  	<h1>Chuck Norris Joke</h1>
+
+  	  	<div class="joke"></div>
+	
+	</div><!--/.weekly_calendar_block -->
+
+	<div class="shuttle_block">
+	  	
+		<h1>Traffic Info</h1>
+
+		<div class="map">
+	  		<iframe src="map_traffic.htm" seamless="seamless" width="85%" height="450px"></iframe>
+	  	</div><!--/.map -->
+  	
+	</div><!--/.shuttle_block -->
+  </div><!--/.bottom_container_second -->
+
+  <div class="clearfix"></div>
+</div><!--/.big_bottom_container -->
+
+
+
+
+</div><!--/.wrapper -->
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+  <script src="js/time.js"></script>
+  <script src="js/weather.js"></script>
+  <script src="js/shuttle.js"></script>
+  <script src="js/calendar.js"></script>
+
+
+
+
+
+  <script src="js/youtube.js"></script>
+
+
+  <script src="js/shelf/gest.js"></script>
+  <script src="js/gesture.js"></script>
+
+  
+  <script type="text/javascript" src="js/shelf/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  <script src="js/speak.js"></script>
+
+
+  <script src="js/speech_to_action.js"></script>
+  <script src="js/speech.js"></script>
+  
+  <script src="js/joke.js"></script>
+
+
+  <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  
+  <script>
+
+    $(document).ready(function() {
+		$(".fancybox").fancybox();
+	});
+
+  	function blush() {
+
+  		setTimeout(function() {
+	  		$('body').animate({
+	  			'background-color' :"rgba(255, 0, 0, 0.5)"
+	  		}, 2000);
+
+	  		setTimeout(function() {
+		  		$('body').animate({
+		  			'background-color' :"rgba(0, 0, 0, 0.5)"
+		  		}, 2000);
+		  	}, 2000);
+  		}, 1000);
+
+  	}
+  </script>
+
+  <script>
+  	// Code for WebCam feed.
+	var video = document.querySelector("#videoElement");
+	 
+	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+	 
+	if (navigator.getUserMedia) {       
+	    navigator.getUserMedia({video: true}, handleVideo, videoError);
+	}
+	 
+	function handleVideo(stream) {
+	    video.src = window.URL.createObjectURL(stream);
+	}
+	 
+	function videoError(e) {
+	    console.log("Error with the feed!");
+	    console.log(e);
+	}
+  </script>
+
+</body>
+</html>
