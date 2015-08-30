@@ -1,6 +1,6 @@
 var create_email = false;
 var final_transcript = '';
-var recognizing = false;
+var recognizing = true;
 var ignore_onend;
 var start_timestamp;
 
@@ -12,6 +12,7 @@ recognition.continuous = true;
 recognition.interimResults = true;
 
 recognition.onstart = function() {
+  console.log("starting again!");
   recognizing = true;
 };
 
@@ -20,6 +21,7 @@ recognition.onerror = function(event) {
 };
 
 recognition.onend = function() {
+  console.log("Stopping!");
   recognizing = false;
   if (ignore_onend) {
     return;
@@ -74,6 +76,9 @@ recognition.start();
 setInterval(function() {
   if (( ! recognizing) && ( ! recognition_stopped_for_video)) {
     console.log("Restarting recognition by timer!");
+    console.log( recognizing);
+    console.log(recognition_stopped_for_video);
+    console.log(recognizing);
     recognition.start();
   }
 }, 3000);

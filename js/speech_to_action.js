@@ -1,4 +1,4 @@
-speech_to_action("Jarvis play Style by Taylor Swift!");
+
 
 function perform_action(msg) {
   var response =  JSON.parse(msg);
@@ -32,9 +32,26 @@ function perform_action(msg) {
       break;
 
     case "shuttle":
-      var prediction = get_shuttle_prediction_for_speech();
-      prediction = (prediction == "N/A") ? "I don't really know! Sorry!" : prediction;
-      text_to_speech("The shuttle will be at the Silber Way stop at around " + prediction);
+      if (intent == "when") {
+        var prediction = get_shuttle_prediction_for_speech();
+        prediction = (prediction == "N/A") ? "I don't really know! Sorry!" : prediction;
+        text_to_speech("The shuttle will be at the Silber Way stop at around " + prediction);  
+      }
+      else {
+        set_if_the_shuttle_is_running(arguments[0]);
+        if (is_the_shuttle_running()) {
+          words = "Yes ";
+          qualifier = "";
+        }
+        else {
+          words = "I'm sorry ";
+          qualifier = "not" 
+        }
+
+        words += arguments[0] + " is " + qualifier + " running right now!";
+        text_to_speech(words);
+      }
+      
       break;
 
     case "you're awesome":

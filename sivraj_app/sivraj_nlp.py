@@ -36,12 +36,12 @@ def get_arguments(domain, intent, words_to_check, speech):
 				if day in speech.lower():
 					arguments = [day]
 	elif domain == "shuttle":
-		if "intent" == "running":
-			shuttles = ["Campus", "Tech Shuttle", "Cambridge East", "Cambridge West", "Boston East"]
+		if intent == "running":
+			shuttles = ["campus shuttle", "tech shuttle", "cambridge east", "cambridge west", "boston east", "boston west", "boston all", "cambridge all"]
 			for shuttle in shuttles:
 				if shuttle.lower() in speech.lower():
 					arguments = [shuttle.lower()]
-		elif "intent" == "when":
+		elif intent == "when":
 			arguments = ["boston east"]
 
 	else:
@@ -51,17 +51,17 @@ def get_arguments(domain, intent, words_to_check, speech):
 
 
 
-def get_intent(domain, words_to_check):
+def get_intent(domain, speech, words_to_check):
 	if domain == "youtube":
 		if "play" in words_to_check['nouns'] or "play" in words_to_check['verbs'] or "listen" in words_to_check['verbs'] or "listen" in words_to_check['nouns']:
 			intent = "play"
 		elif "stop" in words_to_check['nouns'] or "stop" in words_to_check['verbs']:
 			intent = "stop"
 	elif domain == "shuttle":
-		if "running" in speech or "operating" in speech:
-			intent = "running"
-		else:
+		if "when" in speech:
 			intent = "when"
+		else:
+			intent = "running"
 	else:
 		intent = None
 
@@ -69,6 +69,8 @@ def get_intent(domain, words_to_check):
 
 
 def get_domain(speech, words_to_check):
+
+	shuttles = ["Campus Shuttle", "Tech Shuttle", "Cambridge East", "Cambridge West", "Boston East", "Boston West", "Boston All", "Cambridge All"]
 
 	if "play" in words_to_check['nouns'] or "play" in words_to_check['verbs'] or "listen" in words_to_check['verbs'] or "listen" in words_to_check['nouns']:
 		domain = "youtube"
@@ -78,7 +80,7 @@ def get_domain(speech, words_to_check):
 		domain = "time"
 	elif "weather" in words_to_check['nouns'] or "rain" in words_to_check['verbs'] or "sunny" in words_to_check['adverbs'] or "sunny" in words_to_check['adjectives'] or "windy" in words_to_check['adverbs'] or "windy" in words_to_check['adjectives']:
 		domain = "weather"
-	elif "joke" in words_to_check['nouns'] or ("tell" in words_to_check['nouns'] and ("funny" in words_to_check['adjectives'] or "funny" in words_to_check['nouns'])) or ("make" in words_to_check['nouns'] and "laugh" in speech):
+	elif "joke" in words_to_check['nouns'] or ("tell" in words_to_check['nouns'] and ("funny" in words_to_check['adjectives'] or "funny" in words_to_check['nouns'])) or (("make" in words_to_check['nouns'] or "make" in words_to_check['verbs']) and "laugh" in speech):
 		domain = "joke"
 	elif "time" in words_to_check['nouns']:
 		domain ="time"
@@ -88,6 +90,10 @@ def get_domain(speech, words_to_check):
 		domain = "shuttle"
 	else:
 		domain = None
+
+	for shuttle in shuttles:
+		if shuttle.lower() in speech.lower():
+			domain = "shuttle"
 
 	
 	return domain
@@ -118,7 +124,7 @@ def parse_speech(speech):
 
 
 	domain = get_domain(speech, words_to_check)
-	intent = get_intent(domain, words_to_check)
+	intent = get_intent(domain, speech, words_to_check)
 	arguments = get_arguments(domain, intent, words_to_check, speech)
 
 	return (domain, intent, arguments)
@@ -150,5 +156,8 @@ def parse_speech(speech):
 
 
 # print parse_speech("play travelling solider please")
+
+
+# print parse_speech("Is Boston West running?")
 
 

@@ -3,27 +3,15 @@ var joke_callback = function(result) {
 }
 
 function get_joke() {
-	var url = "http://tambal.azurewebsites.net/joke/random";
-
-	// $.get( url, {} ).done(function(result) {
-	// 		console.log(result);
-	// 		$('.joke').text(result['joke']);
-	// 	});
-		
-
-
-		// );
-
+	var url = "http://localhost/sivraj_app/joke";
 
 	$.ajax({
 		url: url,
-		dataType: 'JSONP',
-		jsonpCallback: 'callback',
 		type: 'GET',
-		jsonp: 'jsonp',
+		jsonp: 'json',
 		success: function(result) {
-			console.log(result);
-			// $('.joke').text(result['joke']);
+			var result = jQuery.parseJSON(result);
+			$('.joke').text(result['joke']);
 		}
 	});	
 }
@@ -34,10 +22,13 @@ $(document).ready(function() {
 
 	setInterval(function() {
 		get_joke();
-	}, 600000);	// 10 minutes
+	}, 300000);	// 5 minutes
 });
 
 
 function get_joke_for_speech() {
-	return $('.joke').text();
+	var joke = $('.joke').text();
+	// Update the joke so that you get a new time every time you ask for a joke.
+	get_joke();
+	return joke;
 }

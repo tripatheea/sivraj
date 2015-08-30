@@ -4,8 +4,8 @@ from flask import request
 import nltk
 import sivraj_nlp
 
-
 import json
+import urllib2
 
 app = Flask(__name__)
 
@@ -27,6 +27,12 @@ def nlp():
 
 	return "error"
 
+
+@app.route("/joke")
+def joke():
+	url = "http://tambal.azurewebsites.net/joke/random"
+	response =  urllib2.urlopen(url)
+	return response.read()
 
 if __name__ == "__main__":
     app.run()

@@ -1,4 +1,4 @@
 Put the following in /etc/apache2/sites-available/000-default.conf
 
-WSGIScriptAlias /sivraj_nlp /var/www/html/sivraj/sivraj_nlp/sivraj_nlp.wsgi
+WSGIScriptAlias /sivraj_app /var/www/html/sivraj/sivraj_app/sivraj_app.wsgi
 WSGIApplicationGroup %{GLOBAL}

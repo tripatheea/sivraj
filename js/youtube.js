@@ -49,8 +49,15 @@ function show_video_in_lightbox(youtube_video_id) {
     {
       'autoDimensions'  : true,
       'transitionIn'    : 'elastic',
-      'transitionOut'   : 'elastic'
+      'transitionOut'   : 'elastic',
+      afterClose: function() {
+        if ( ! recognizing) {
+          recognition.start();  
+        }
+        recognition_stopped_for_video = false;
+      }
     }
+
   );
 
 
@@ -88,4 +95,5 @@ function close_lightbox() {
   recognition.start();
   recognition_stopped_for_video = false;
 }
+
 

@@ -62,3 +62,49 @@ $(document).ready(function() {
 function get_shuttle_prediction_for_speech() {
 	return $('.eta').text();
 }
+
+
+
+
+// console.log(set_if_the_shuttle_is_running());
+
+
+function set_if_the_shuttle_is_running(shuttle) {
+	if (shuttle.toLowerCase() == "boston all") {
+		shuttle_code = "saferidebostonall";
+	}
+	else if (shuttle.toLowerCase() == "tech shuttle") {
+		shuttle_code = "tech";
+	}
+	else if (shuttle.toLowerCase() == "campus shuttle") {
+		shuttle_code = "saferidecampshut";
+	}
+	else if (shuttle.toLowerCase() == "boston west") {
+		shuttle_code = "saferidebostonw";
+	}
+	else if (shuttle.toLowerCase() == "cambridge all") {
+		shuttle_code = "saferidecamball";
+	}
+	else if (shuttle.toLowerCase() == "campus shuttle") {
+		shuttle_code = "saferidecampshut";
+	}
+	else {
+		shuttle_code = "saferidebostone";
+	}
+
+	
+
+	var url = "http://m.mit.edu/apis/shuttles/vehicles/?agency=mit&routes=" + shuttle_code
+	$.ajax({
+			url: url,
+			data: {},
+			dataType: 'jsonp',
+			success: function(result) {
+				$('.is_shuttle_running').text(result[0]['predictable']);
+			}
+		});
+}
+
+function is_the_shuttle_running() {
+	return $('.is_shuttle_running').text();
+}
