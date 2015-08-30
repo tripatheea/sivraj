@@ -1,8 +1,8 @@
-var client_id = "529057231169-5noo9lgo9c8261htvsle6djefk0m8fvj.apps.googleusercontent.com";
-var api_key = "AIzaSyBRzwyZaN-BmRsiBg9_ZTtjFA1bbBoOs5U";
-var scopes = "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/youtube.readonly";
+var client_id = "525364012105-hj23t2lha4fk2qcqa09atf30qguepl9h.apps.googleusercontent.com";
+var api_key = "AIzaSyD72ymu3roMCW7GHeqvmwTFPPEhvHT-DfE";
+var scopes = "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/youtube.readonly https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.modify https://www.googleapis.com/auth/gmail.compose";
 
-calendar_ids = Array("helloworld@aashishtripathee.com", "aashishtripathee.com_ammvib767ms7deoah2t96n6fj0@group.calendar.google.com", "aashishtripathee.com_f1qbg1khv12gk16qhg3l2fjnh4@group.calendar.google.com", "aashishtripathee.com_7qssuvc96o8m8ui2m2kbass15g@group.calendar.google.com");
+calendar_ids = Array("helloworld@aashishtripathee.com");
 
 
 
@@ -33,6 +33,7 @@ var authorizeButton = document.getElementById('authorize-button');
   if (authResult && !authResult.error) {
     authorizeButton.style.visibility = 'hidden';
     makeApiCall();
+    loadGmailApi();
   } else {
     authorizeButton.style.visibility = '';
     authorizeButton.onclick = handleAuthClick;
@@ -60,11 +61,11 @@ function makeApiCall() {
   var d = new Date();
   var day = d.getDay();
 
-
-  var number_of_days = 2;
-  if (day > 3) {
-    number_of_days = (6 - number_of_days) % 6;
-  }
+  // Show all events within one week from now.
+  var number_of_days = 7;
+  // if (day > 3) {
+  //   number_of_days = (6 - number_of_days) % 6;
+  // }
 
   var start_time = ISODateString(new Date()); // Today
   var end_time = new Date((new Date()).getTime() + 86400000 * number_of_days);  // Today + number_of_days days.

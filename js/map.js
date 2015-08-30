@@ -22,6 +22,9 @@ function initialize() {
 
                     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
+
+                    // Uncomment the following lines if you want to display the shuttle's path.
+                    
                     // var url = "http://m.mit.edu/apis/shuttles/routes/" + shuttle;
 
                     // $.ajax({

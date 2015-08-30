@@ -6,6 +6,8 @@ $(document).ready(function() {
 	gest.options.subscribeWithCallback(function(gesture) {
 		//handle gesture .direction .up .down .left .right .error
 
+		console.log(direction);
+		
 		if (gesture['direction'] != null) {
 			var direction = gesture['direction'].toLowerCase();
 			console.log(direction);
