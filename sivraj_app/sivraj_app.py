@@ -2,7 +2,7 @@ from flask import Flask
 from flask import request
 
 import nltk
-import nlp_sivraj
+import sivraj_nlp
 
 
 import json
@@ -18,13 +18,13 @@ def hello():
 
 
 
-@app.route('/nlp')
+@app.route('/nlp', methods=['POST'])
 def nlp():
-	
-	if request.method == 'GET':
-		if request.args.get('speech'):
-			processed_speech = nlp_sivraj.parse_speech(str(request.args.get('speech')))
+	if request.method == 'POST':
+		if request.form['speech']:
+			processed_speech = sivraj_nlp.parse_speech(str(request.form['speech']))
 			return json.dumps(processed_speech)
+
 	return "error"
 
 

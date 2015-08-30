@@ -1,16 +1,20 @@
-
 import nltk
-
 
 def get_arguments(domain, intent, words_to_check, speech):
 
 	arguments = []
 
 	if domain == "youtube":
-		print intent
 		if intent == "play":
-			words = speech.split(" ")
-			position = words.index("play")
+			words = speech.lower().split(" ")
+			
+			if "play" in speech.lower():
+				position = words.index("play")
+			elif "listen to" in speech.lower():
+				position = words.index("listen") + 1
+			elif "listen" in speech.lower():
+				position = words.index("listen")	
+
 			thing_to_play = ""
 			i = position 
 			for x in words[position + 1:]:
@@ -126,6 +130,7 @@ def parse_speech(speech):
 # print parse_speech("Someone tell me the goddamn time please!")
 
 # print parse_speech("Please play time of your life!")
+# print parse_speech("I want to listen to Style by Taylor Swift!")
 
 
 # print parse_speech("What is the weather like?")

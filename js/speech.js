@@ -57,10 +57,14 @@ recognition.onresult = function(event) {
     jarvis_start_sound_played = true;
   }
   
-  speech_to_action(final_transcript);
+  
+  speech_to_action(final_transcript);  
 
+  
 
-  final_transcript = '';
+  if ( ! ((final_transcript.toLowerCase().trim() == 'jarvis') || (final_transcript.toLowerCase().trim() == 'sam'))) {
+    final_transcript = '';
+  }
 
 };
 
