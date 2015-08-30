@@ -1,8 +1,4 @@
 
-calendar_ids = Array("helloworld@aashishtripathee.com");
-
-
-
 // Define an Event class.
 function Event(name, location, start_time, end_time, calendar){
   this.name = name;
