@@ -19,7 +19,7 @@ var authorizeButton = document.getElementById('authorize-button');
   if (authResult && !authResult.error) {
     authorizeButton.style.visibility = 'hidden';
     makeCalendarApiCall();
-    loadGmailApi();
+    // loadGmailApi();
   } else {
     authorizeButton.style.visibility = '';
     authorizeButton.onclick = handleAuthClick;

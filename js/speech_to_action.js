@@ -34,8 +34,15 @@ function perform_action(msg) {
     case "shuttle":
       if (intent == "when") {
         var prediction = get_shuttle_prediction_for_speech();
-        prediction = (prediction == "N/A") ? "I don't really know! Sorry!" : prediction;
-        text_to_speech("The shuttle will be at the Silber Way stop at around " + prediction);  
+        
+        if (prediction == "N/A" || (prediction == "")) {
+          var text = "I don't really know! Sorry! Maybe check the M.I.T. mobile app?";
+        }
+        else {
+          var text = "The shuttle will be at the Silber Way stop at around " + prediction;
+        }
+        
+        text_to_speech(text);  
       }
       else {
         set_if_the_shuttle_is_running(arguments[0]);

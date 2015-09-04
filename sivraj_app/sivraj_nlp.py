@@ -84,10 +84,30 @@ def get_domain(speech, words_to_check):
 		domain = "joke"
 	elif "time" in words_to_check['nouns']:
 		domain ="time"
-	elif "you" in words_to_check['nouns'] and (len(words_to_check['adjectives']) != 0 or len(words_to_check['adverbs']) != 0) and ("me" not in words_to_check['nouns']):
-		domain = "compliment"
+	# elif "you" in words_to_check['nouns'] and (len(words_to_check['adjectives']) != 0 or len(words_to_check['adverbs']) != 0) and ("me" not in words_to_check['nouns']):
+	# 	domain = "compliment"
 	elif "shuttle" in words_to_check['nouns'] or "bus" in words_to_check['nouns']:
 		domain = "shuttle"
+	elif speech == "you're funny":
+		domain = "you're funny"
+	elif speech == "you're awesome":
+		domain = "you're awesome"
+	elif speech == "i'm batman":
+		domain = "i'm batman"
+	elif speech == "hello":
+		domain = "hello"
+	elif speech == "previous screen":
+		domain = "previous screen"
+	elif speech == "next screen":
+		domain = "next screen"
+	elif speech == "close lightbox":
+		domain = "close lightbox"
+	elif speech == "update":
+		domain = "update"
+	elif speech == "thank you":
+		domain = "thank you"
+	elif speech == "you're funny":
+		domain = "you're funny"
 	else:
 		domain = None
 
