@@ -43,7 +43,6 @@ $(document).ready(function() {
 function move_bottom_slide_left() {
 
 	var margin = $('.big_bottom_container').css("marginLeft");
-	console.log(margin);
 	
 	if (margin == "19.1875px") {
 		console.log("Moving left!");

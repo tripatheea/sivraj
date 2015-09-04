@@ -54,7 +54,7 @@ recognition.onresult = function(event) {
   $('.interim_text').text(interim_transcript);
   $('.final_text').text(final_transcript);
 
-  if (((interim_transcript.toLowerCase().trim() == 'jarvis') || (interim_transcript.toLowerCase().trim() == 'sam') || (interim_transcript.toLowerCase().trim() == 'eva'))  && ( ! jarvis_start_sound_played)) {
+  if (((interim_transcript.toLowerCase().trim() == 'jarvis') || (interim_transcript.toLowerCase().trim() == 'sam'))  && ( ! jarvis_start_sound_played)) {
     document.getElementById('jarvis_start').play();
     jarvis_start_sound_played = true;
   }

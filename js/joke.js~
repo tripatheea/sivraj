@@ -3,7 +3,7 @@ var joke_callback = function(result) {
 }
 
 function get_joke() {
-	var url = "https://localhost/sivraj_app/joke";
+	var url = "http://localhost/sivraj_app/joke";
 
 	$.ajax({
 		url: url,
