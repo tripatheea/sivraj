@@ -12,7 +12,7 @@ recognition.continuous = true;
 recognition.interimResults = true;
 
 recognition.onstart = function() {
-  console.log("starting again!");
+  //console.log("starting again!");
   recognizing = true;
 };
 
@@ -21,7 +21,7 @@ recognition.onerror = function(event) {
 };
 
 recognition.onend = function() {
-  console.log("Stopping!");
+  //console.log("Stopping!");
   recognizing = false;
   if (ignore_onend) {
     return;
@@ -74,6 +74,8 @@ recognition.start();
 
 
 setInterval(function() {
+  try {
+  /*
   if (( ! recognizing) && ( ! recognition_stopped_for_video)) {
     console.log("Restarting recognition by timer!");
     console.log( recognizing);
@@ -81,6 +83,11 @@ setInterval(function() {
     console.log(recognizing);
     recognition.start();
   }
+ */
   recognition.start();
+  }
+  catch (err) {
+	// Do nothing.
+  }
 }, 3000);
 

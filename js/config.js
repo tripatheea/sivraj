@@ -1,1 +1,1 @@
-calendar_ids = Array("helloworld@aashishtripathee.com");
+calendar_ids = Array("helloworld@aashishtripathee.com", "aashishtripathee.com_auv20om812dbuncdfccm2o5avg@group.calendar.google.com", "aashishtripathee.com_89hkvv31qcohuh03smmh1tt3d0@group.calendar.google.com", "aashishtripathee.com_mbcr6dm2mng2jv05dprcp57t8k@group.calendar.google.com", "aashishtripathee.com_00fn10ohmut6t5159hjrdt0cn0@group.calendar.google.com", "aashishtripathee.com_i2nphpv36rai98umahb1dlnd98@group.calendar.google.com");

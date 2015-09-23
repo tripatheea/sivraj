@@ -54,7 +54,7 @@ function makeCalendarApiCall() {
         var all_events_of_this_calendar = resp['result']['items'];
 
         for(var i = 0; i < all_events_of_this_calendar.length; i++) {
-          var e = new Event(all_events_of_this_calendar[i]['summary'], all_events_of_this_calendar[i]['location'], all_events_of_this_calendar[i]['start']['dateTime'], all_events_of_this_calendar[i]['start']['dateTime'], all_events_of_this_calendar[i]['organizer']['displayName']);
+          var e = new Event(all_events_of_this_calendar[i]['summary'], location, all_events_of_this_calendar[i]['start']['dateTime'], all_events_of_this_calendar[i]['start']['dateTime'], all_events_of_this_calendar[i]['organizer']['displayName']);
           all_events_to_list.push(e);
         }
 
