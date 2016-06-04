@@ -1,5 +1,6 @@
 import nltk
 
+
 def get_arguments(domain, intent, words_to_check, speech):
 
 	arguments = []
@@ -120,7 +121,7 @@ def get_domain(speech, words_to_check):
 
 
 def parse_speech(speech):
-	
+
 	tokens = nltk.word_tokenize(speech)
 
 	words_to_check = {}

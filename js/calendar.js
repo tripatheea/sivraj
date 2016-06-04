@@ -126,6 +126,8 @@ function list_all_events(all_events_to_list) {
       calendar_styling = 'psets';
     }
 
+    console.log(e['name']);
+    
     events_html += "<tr>";
     events_html += "<td class='time'>" + start + "</td>";
     events_html += "<td class='name " + calendar_styling + "'>" + e['name'] + "</td>";
