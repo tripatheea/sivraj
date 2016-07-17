@@ -4,7 +4,7 @@ function turn_lights(args) {
 	
 	console.log(args);
 
-	var url = "http://localhost/sivraj_app";
+	var url = "https://localhost/sivraj_app";
 
 	var lights = {
 		status: -1,
