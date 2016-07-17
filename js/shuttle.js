@@ -5,7 +5,8 @@ function get_shuttle_prediction() {
 	var day = d.getDay();
 
 	if ((hours <= 23 && hours >= 18) || (hours <= 3 && hours >= 0)) {
-		var shuttle = "saferidebostone";	// 'saferidebostone' for Saferide, Boston East. 'boston' for Boston Daytime.
+		// var shuttle = "saferidebostone";	// 'saferidebostone' for Saferide, Boston East. 'boston' for Boston Daytime.
+		var shuttle = "saferidebostonall";
 		var stop = "silb";
 	}
 	else if ((hours >= 8 && hours <= 17) && (day >= 1 && day <= 5)) {
@@ -87,6 +88,9 @@ function set_if_the_shuttle_is_running(shuttle) {
 	}
 	else if (shuttle.toLowerCase() == "campus shuttle") {
 		shuttle_code = "saferidecampshut";
+	}
+	else if (shuttle.toLowerCase() == "Boston All") {
+		shuttle_code = "saferidebostonall";
 	}
 	else {
 		shuttle_code = "saferidebostone";

@@ -125,9 +125,39 @@ function list_all_events(all_events_to_list) {
     else if (e['calendar'] == 'Psets and Exams') {
       calendar_styling = 'psets';
     }
+    else if (e['calendar'] == 'Very Important Deadlines') {
+      calendar_styling = "very_important";
+    }
+    else if (e['calendar'] == 'Papers') {
+      calendar_styling = "papers";
+    }
+    else if (e['calendar'] == 'Others') {
+      calendar_styling = "others";
+    }
+    else if (e['calendar'] == "Other Peoples' Talks") {
+      calendar_styling = "other_peoples_talks";
+    }
+    else if (e['calendar'] == 'My Talks') {
+      calendar_styling = "my_talks";
+    }
+    else if (e['calendar'] == 'Meetings') {
+      calendar_styling = "meetings";
+    }
+    else if (e['calendar'] == 'Exams') {
+      calendar_styling = "exams";
+    }
+    else if (e['calendar'] == 'Critical') {
+      calendar_styling = "critical";
+    }
+    else if (e['calendar'] == 'Classes') {
+      calendar_styling = "classes";
+    }
+    else {
+      calendar_styling = "";
+    }
 
-    console.log(e['name']);
-    
+
+
     events_html += "<tr>";
     events_html += "<td class='time'>" + start + "</td>";
     events_html += "<td class='name " + calendar_styling + "'>" + e['name'] + "</td>";

@@ -63,6 +63,11 @@ def get_intent(domain, speech, words_to_check):
 			intent = "when"
 		else:
 			intent = "running"
+	elif domain == "lights":
+		if "on" in speech:
+			intent = "turn_on"
+		else:
+			intent = "turn_off"
 	else:
 		intent = None
 
@@ -109,6 +114,8 @@ def get_domain(speech, words_to_check):
 		domain = "thank you"
 	elif speech == "you're funny":
 		domain = "you're funny"
+	elif "lights" in words_to_check['nouns'] or "lamp" in words_to_check['nouns']:
+		domain = "lights"
 	else:
 		domain = None
 
@@ -133,7 +140,7 @@ def parse_speech(speech):
 	# print  nltk.help.upenn_tagset('IN')
 
 	for word, part in nltk.pos_tag(tokens):
-		if str(part.strip()) == "NN" or str(part.strip()) == "NNP" or str(part.strip()) == "PRP":
+		if str(part.strip()) == "NN" or str(part.strip()) == "NNP" or str(part.strip()) == "PRP" or str(part.strip()) == "NNS":
 			words_to_check['nouns'].append(word.lower())
 		elif str(part.strip()) == "VB":
 			words_to_check['verbs'].append(word.lower())
@@ -182,3 +189,4 @@ def parse_speech(speech):
 # print parse_speech("Is Boston West running?")
 
 
+print parse_speech("Lights on please")

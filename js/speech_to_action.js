@@ -5,7 +5,7 @@ function perform_action(msg) {
   
   var domain = response[0];
   var intent = response[1];
-  var arguments = response[2];
+  var args = response[2];
 
   switch (domain) {
     case "time":               // what time is it now
@@ -45,7 +45,7 @@ function perform_action(msg) {
         text_to_speech(text);  
       }
       else {
-        set_if_the_shuttle_is_running(arguments[0]);
+        set_if_the_shuttle_is_running(args[0]);
         if (is_the_shuttle_running()) {
           words = "Yes ";
           qualifier = "";
@@ -55,7 +55,7 @@ function perform_action(msg) {
           qualifier = "not" 
         }
 
-        words += arguments[0] + " is " + qualifier + " running right now!";
+        words += args[0] + " is " + qualifier + " running right now!";
         text_to_speech(words);
       }
       
@@ -95,10 +95,14 @@ function perform_action(msg) {
 
     case "youtube":
       if (intent == "play") {
-        var youtube_search_keyword = arguments[0];
+        var youtube_search_keyword = args[0];
         search_youtube(youtube_search_keyword);  
       }
       
+      break;
+    
+    case "lights":
+      turn_lights(intent);
       break;
 
     default:
@@ -130,7 +134,7 @@ function speech_to_action(raw_words) {
 
   $.ajax({
     method: "POST",
-    url: "https://localhost/sivraj_app/nlp",
+    url: "http://localhost/sivraj_app/nlp",
     data: { speech: words }
   })
   .done(function( msg ) {

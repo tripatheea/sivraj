@@ -181,16 +181,50 @@ body {
 }
 
 .bottom_container .calendar_block .calendar_events table.events td.aashish {
-	color: rgb(0, 213, 27) !important;
+	color: #9fe1e7 !important;
 }
 
 .bottom_container .calendar_block .calendar_events table.events td.office_hours {
-	color: rgb(0, 42, 255) !important;
+	color: #16a765 !important;
 }
 
-.bottom_container .calendar_block .calendar_events table.events td.psets {
-	color: rgb(255, 107, 0) !important;
+.bottom_container .calendar_block .calendar_events table.events td.very_important {
+	color: rgb(255, 255, 255) !important;
 }
+
+
+.bottom_container .calendar_block .calendar_events table.events td.papers {
+	color: #ac725e !important;
+}
+
+.bottom_container .calendar_block .calendar_events table.events td.others {
+	color: #B397BB !important;
+}
+
+.bottom_container .calendar_block .calendar_events table.events td.other_peoples_talks {
+	color: #fbe983 !important;
+}
+
+.bottom_container .calendar_block .calendar_events table.events td.my_talks {
+	color: #0a00a7 !important;
+}
+
+.bottom_container .calendar_block .calendar_events table.events td.meetings {
+	color: #f691b2 !important;
+}
+
+.bottom_container .calendar_block .calendar_events table.events td.exams {
+	color: #a72716 !important;
+}
+
+.bottom_container .calendar_block .calendar_events table.events td.critical {
+	color: #FFA98C !important;
+}
+
+.bottom_container .calendar_block .calendar_events table.events td.classes {
+	color: #b3dc6c !important;
+}
+
 
 
 .shuttle_block {

@@ -6,7 +6,8 @@ function initialize() {
     var day = d.getDay();
 
     if ((hours <= 23 && hours >= 18) || (hours <= 3 && hours >= 0)) {
-        var shuttle = "saferidebostone";    // 'saferidebostone' for Saferide, Boston East. 'boston' for Boston Daytime.
+        // var shuttle = "saferidebostone";    // 'saferidebostone' for Saferide, Boston East. 'boston' for Boston Daytime.
+        var shuttle = "saferidebostonall";    // 'saferidebostone' for Saferide, Boston East. 'boston' for Boston Daytime.
     }
     else if ((hours >= 8 && hours <= 17) && (day >= 1 && day <= 5)) {
         var shuttle = "boston"; // 'saferidebostone' for Saferide, Boston East. 'boston' for Boston Daytime.
