@@ -134,7 +134,7 @@ function speech_to_action(raw_words) {
 
   $.ajax({
     method: "POST",
-    url: "http://localhost/sivraj_app/nlp",
+    url: "https://localhost/sivraj_app/nlp",
     data: { speech: words }
   })
   .done(function( msg ) {
